@@ -33,13 +33,6 @@ export class UsersComponent implements OnInit, OnDestroy {
     });
   }
 
-  // addUser() {
-  //   this.usersService.add(this.newUser).then(() => {
-  //     this.newUser = {};
-  //     return this.getUsers();
-  //   });
-  // }
-
   deleteUser(user) {
     this.usersService.delete(user.id);
     return this.getUsers();
