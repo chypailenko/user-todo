@@ -1,0 +1,64 @@
+<button (click)="openModal()" class="btn btn-primary">New</button>
+<ng-template #myModal>
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Create New User</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #f="ngForm"
+          (ngSubmit)="addUser()">
+
+      <div class="form-group">
+        <label for="nameInput">Name:</label>
+        <input type="text"
+               id="nameInput"
+               placeholder="First name"
+               [(ngModel)]="newUser.name"
+               name="name"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="surnameInput">Surname:</label>
+        <input type="text"
+               id="surnameInput"
+               placeholder="Lastname"
+               [(ngModel)]="newUser.surname"
+               name="surname"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="emailInput">Email:</label>
+        <input type="text"
+               id="emailInput"
+               placeholder="some@mail.example"
+               [(ngModel)]="newUser.mail"
+               name="email"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="ageInput">Age:</label>
+        <input type="text"
+               id="ageInput"
+               placeholder="0"
+               [(ngModel)]="newUser.age"
+               name="age"
+               class="form-control">
+      </div>
+
+      <div class="field">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+
+    </form>
+  </div>
+</ng-template>

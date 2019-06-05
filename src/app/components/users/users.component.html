@@ -1,0 +1,34 @@
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Action</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.surname }}</td>
+      <td>{{ user.mail }}</td>
+      <td>{{ user.age }}</td>
+      <td>
+        <div class="field">
+          <button class="btn btn-primary" (click)="editUser($event, user)">Edit</button>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <button class="btn btn-danger" (click)="deleteUser(user)">x</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
