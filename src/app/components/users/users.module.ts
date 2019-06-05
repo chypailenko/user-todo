@@ -4,13 +4,11 @@ import { CommonModule } from '@angular/common';
 
 // components
 import {UsersComponent} from './users.component';
-import {EditPopupComponent} from '../edit-popup/edit-popup.component';
 import {SharedModulesModule} from '../../SharedModules/shared-modules.module';
 
 @NgModule({
   declarations: [
-    UsersComponent,
-    EditPopupComponent
+    UsersComponent
 
   ],
   imports: [

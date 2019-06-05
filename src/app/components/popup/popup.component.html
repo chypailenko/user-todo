@@ -22,8 +22,23 @@
                placeholder="First name"
                [(ngModel)]="newUser.name"
                name="name"
+               required minlength="3" maxlength="10"
+               #name="ngModel"
                class="form-control">
+        <div *ngIf="name.errors && (name.dirty || name.touched)"
+             class="alert alert-danger">
+          <div [hidden]="!name.errors.required">
+            Required
+          </div>
+          <div [hidden]="!name.errors.minlength">
+            At least 3 characters
+          </div>
+          <div [hidden]="!name.errors.maxlength">
+            Not more than 10 characters
+          </div>
+        </div>
       </div>
+
 
       <div class="form-group">
         <label for="surnameInput">Surname:</label>
@@ -41,8 +56,15 @@
                id="emailInput"
                placeholder="some@mail.example"
                [(ngModel)]="newUser.mail"
-               name="email"
+               email name="email"
+               #mail="ngModel"
                class="form-control">
+        <div *ngIf="mail.errors && (mail.dirty || mail.touched)"
+             class="alert alert-danger">
+          <div [hidden]="!mail.errors.email">
+            Email is wrong!
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -52,11 +74,18 @@
                placeholder="0"
                [(ngModel)]="newUser.age"
                name="age"
+               #age="ngModel"
                class="form-control">
+        <div *ngIf="age.errors && (age.dirty || age.touched)"
+             class="alert alert-danger">
+          <div [hidden]="!age.errors.minNumber">
+            Negative age!
+          </div>
+        </div>
       </div>
 
       <div class="field">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Add</button>
       </div>
 
     </form>
