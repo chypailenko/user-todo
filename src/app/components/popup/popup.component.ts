@@ -43,8 +43,9 @@ export class PopupComponent implements OnInit {
   onSubmit() {
     this.usersService.add(this.newUser).then(() => {
       // this.newUser = {};
-      this.newUser = new User();
-      return this.getUsers();
+      /*this.newUser = new User();
+      return this.getUsers();*/
+      this.modalRef.close();
     });
   }
 /* onSubmit(newUser: User): void {
