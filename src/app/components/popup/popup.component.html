@@ -1,7 +1,8 @@
 <button (click)="openModal()" class="btn btn-primary">New</button>
 <ng-template #myModal>
 <div class="modal-header">
-    <h4 class="modal-title pull-left">Create New User</h4>
+    <!--<h4 class="modal-title pull-left">Create New User</h4>-->
+    <h4 class="modal-title pull-left">{{ modalAttributes.title }}</h4>
     <button
       type="button"
       class="close pull-right"
@@ -13,7 +14,7 @@
 
   <div class="modal-body">
     <form #f="ngForm"
-          (ngSubmit)="addUser()">
+          (ngSubmit)="onSubmit()">
 
       <div class="form-group">
         <label for="nameInput">Name:</label>
@@ -84,8 +85,16 @@
         </div>
       </div>
 
-      <div class="field">
+      <!--<div class="field">
         <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Add</button>
+      </div>-->
+      <div class="field">
+        <button type="submit"
+                class="btn btn-primary"
+                [ngClass]="['btn', modalAttributes.btnClass]"
+                [disabled]="!f.form.valid">
+          {{ modalAttributes.btnCaption }}
+        </button>
       </div>
 
     </form>

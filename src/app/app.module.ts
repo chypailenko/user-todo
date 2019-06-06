@@ -6,6 +6,9 @@ import { UsersModule } from './components/users/users.module';
 import { SharedModulesModule } from './SharedModules/shared-modules.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ContainerComponent } from './components/container/container.component';
+import { modalAction, modalActionConfig } from './components/popup/popup.constants';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { ContainerComponent } from './components/container/container.component';
     BrowserModule,
     UsersModule,
     NgbModule,
-    SharedModulesModule
+    SharedModulesModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: modalAction, useValue: modalActionConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

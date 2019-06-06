@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, OnDestroy, Output } from '@angular/cor
 import {UsersService} from './users.service';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {Subscription} from 'rxjs';
+import {User} from './User';
 
 @Component({
   selector: 'app-users',
@@ -37,6 +38,16 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.usersService.delete(user.id);
     return this.getUsers();
   }
+
+ /* getUsers(): void {
+    this.usersService.get()
+      .subscribe(users => this.users = users);
+  }*/
+
+/*  deleteUser(user: User): void {
+    this.usersService.delete(user.id)
+      .subscribe();
+  }*/
 
   editUser(event, user) {
     event.stopPropagation();
